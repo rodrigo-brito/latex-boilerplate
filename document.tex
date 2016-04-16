@@ -1,8 +1,15 @@
 \documentclass{article}
-\usepackage[brazilian]{babel}
+\usepackage[tmargin=0.5in]{geometry}
+\usepackage[brazil,portuges]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+\usepackage[ruled,lined]{algorithm2e}
+\usepackage{booktabs}
+\graphicspath{{fig/}} % Location of the graphics files
+\usepackage[round, authoryear]{natbib}
 
 \begin{document}
 
@@ -12,28 +19,72 @@
 \maketitle
 
 \begin{abstract}
-The abstract text goes here.
+Não sendo obrigatório, mas você pode incluir um resumo ao seu trabalho. Para remover, basta excluir este bloco de comandos;
 \end{abstract}
 
-\section{Seção 1}
-Here is the text of your introduction.
+\section{Introdução}
+Escreva aqui suas informações introdutórias, podendo dividi-las em subseções entre outros diversos tipos de elementos como mostrado nas seções seguintes.
+
+\subsection{Equações e fórmulas matemáticas}
+
+A Equação \ref{simple_equation} mostra um simples exemplo de modelo matemático assinalado com \textit{label}, também podendo ser utilizados em linha, assim: $\alpha = \sqrt{ \beta }$.
 
 \begin{equation}
     \label{simple_equation}
     \alpha = \sqrt{ \beta }
 \end{equation}
 
-\subsection{Subsection Heading Here}
+\subsection{Subseção}
 Write your subsection text here.
 
 \begin{figure}[!htp]
     \centering
-    \includegraphics[width=0.9\linewidth]{fig/image.png}
+    \includegraphics[width=0.5\linewidth]{fig/image.png}
     \caption{Simulation Results}
-    \label{simulationfigure}
+    \label{figura}
 \end{figure}
 
-\section{Conclusion}
-Write your conclusion here.
+\subsection{Tabelas e Quadros}
+
+A Tabela \ref{tabela} mostra um exemplo simples de organização, uma maneira simplificada de gerar a estrutura é através do site \url{http://www.tablesgenerator.com/}.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lll}
+		\hline
+		& Descida  & Simulated Annealing \\ \hline
+		FO        & 50       & 45,7                \\
+		Tempo (s) & 3,817595 & 73,43069            \\ \hline
+	\end{tabular}	
+	\caption{Exemplo de tabela}
+	\label{tabela}
+\end{table}
+
+\subsection{Pseudocódigos}
+
+No Algoritmo \ref{algoritmo1} é mostrado um exemplo de pseudocódigo em \LaTeX.
+
+\begin{algorithm}[H]
+	\SetAlgoLined
+	\Entrada{$S,\eta, U$} 
+	\Saida{Número esperado de nodos atingidos}
+	\Inicio{
+		$\sigma(S) = 0$ \\
+		\Se{$u = S$}{
+			$\sigma(S)\leftarrow \sigma(S)+\textsc{Backtrack}(u,\eta,W,U)$\\
+		}
+	}
+	\Retorna{$\sigma(S)$}
+	\label{algoritmo1}
+	\caption{\textsc{Esperança}}
+\end{algorithm}
+
+\subsection{Citações}
+Para citar referência em linha \cite{knuth:84}, e para fim de linha \citep{knuth:84}. Você também pode citar figuras, assim como a Figura \ref{figura}, que é referenciada pelo seu \textit{label}.
+
+\section{Conclusões}
+Escreva suas conclusões aqui
+
+\bibliographystyle{citacoes-abnt}
+\bibliography{referencias}
 
 \end{document}
